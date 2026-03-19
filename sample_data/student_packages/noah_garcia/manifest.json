@@ -1,0 +1,53 @@
+{
+  "student_name": "Noah Garcia",
+  "scenario_focus": "Residency evidence missing for Iowa aid and SAP third-party documentation missing.",
+  "documents": [
+    {
+      "file": "scan_01.pdf",
+      "document_type": "FAFSA Confirmation",
+      "purpose": "Confirms FAFSA submission details, SAI, and school code routing."
+    },
+    {
+      "file": "scan_02.pdf",
+      "document_type": "Income Verification Form",
+      "purpose": "Provides household and income verification fields used for review."
+    },
+    {
+      "file": "scan_03.pdf",
+      "document_type": "Tax Return",
+      "purpose": "Provides AGI/tax-year support and transcript completeness status."
+    },
+    {
+      "file": "scan_04.pdf",
+      "document_type": "Iowa Financial Aid Application",
+      "purpose": "Captures Iowa state-aid context and residency support details."
+    },
+    {
+      "file": "scan_05.pdf",
+      "document_type": "SAP Appeal Documentation",
+      "purpose": "Includes SAP context, attempted/earned credits, and support docs status."
+    }
+  ],
+  "expected_catches": [
+    {
+      "title": "Iowa residency evidence gap",
+      "description": "Residency evidence is blank in the Iowa aid form and should be requested for state-aid review.",
+      "keywords": [
+        "residency evidence",
+        "iowa",
+        "not provided",
+        "state aid"
+      ]
+    },
+    {
+      "title": "SAP support documentation gap",
+      "description": "SAP appeal lists third-party documentation as pending and advisor plan status as draft only.",
+      "keywords": [
+        "sap",
+        "third-party",
+        "documentation",
+        "missing"
+      ]
+    }
+  ]
+}

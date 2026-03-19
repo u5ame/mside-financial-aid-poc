@@ -1,0 +1,43 @@
+{
+  "student_name": "Jordan Lee",
+  "scenario_focus": "Tax transcript appears to include only page 1 while indicating multiple pages.",
+  "documents": [
+    {
+      "file": "scan_01.pdf",
+      "document_type": "FAFSA Confirmation",
+      "purpose": "Confirms FAFSA submission details, SAI, and school code routing."
+    },
+    {
+      "file": "scan_02.pdf",
+      "document_type": "Income Verification Form",
+      "purpose": "Provides household and income verification fields used for review."
+    },
+    {
+      "file": "scan_03.pdf",
+      "document_type": "Tax Return",
+      "purpose": "Provides AGI/tax-year support and transcript completeness status."
+    },
+    {
+      "file": "scan_04.pdf",
+      "document_type": "Iowa Financial Aid Application",
+      "purpose": "Captures Iowa state-aid context and residency support details."
+    },
+    {
+      "file": "scan_05.pdf",
+      "document_type": "SAP Appeal Documentation",
+      "purpose": "Includes SAP context, attempted/earned credits, and support docs status."
+    }
+  ],
+  "expected_catches": [
+    {
+      "title": "Tax transcript completeness gap",
+      "description": "Tax transcript appears incomplete because only page 1 is present while the document indicates multiple pages.",
+      "keywords": [
+        "page 2",
+        "tax return",
+        "missing",
+        "transcript"
+      ]
+    }
+  ]
+}
