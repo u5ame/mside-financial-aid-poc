@@ -31,7 +31,7 @@
   "expected_catches": [
     {
       "title": "Tax transcript completeness gap",
-      "description": "Tax transcript appears incomplete because only page 1 is present while the document indicates multiple pages.",
+      "description": "Tax transcript incomplete - missing page",
       "keywords": [
         "page 2",
         "tax return",

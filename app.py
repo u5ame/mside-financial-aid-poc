@@ -140,7 +140,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.title("Financial Aid Document Processing Assistant (Prototype)")
+st.title("🎓 Morningside Financial Aid Document Processing Assistant (Prototype)")
 st.caption("AI-first intake triage for Morningside University financial aid workflows")
 
 tab_tool, tab_architecture = st.tabs(["📄 Document Processing Tool", "🏗️ Architecture — POC vs Production"])
@@ -216,14 +216,9 @@ sample_option_map = get_sample_package_options()
 sample_options = ["None"] + list(sample_option_map.keys())
 
 with tab_tool:
-    st.info(
-        "This prototype demonstrates AI-assisted intake only. It does not make financial aid decisions. "
-        "Final review and communication remain with staff in the Office of Student Financial Planning."
-    )
-
     with st.expander("POC Context", expanded=True):
         st.markdown(
-            "All preloaded student packages share the same 5-document intake structure. "
+            "We have created three student document packages to demonstrate the AI-assisted intake process."
             "AI classifies each document, extracts key fields, and flags likely missing or unclear items."
         )
         st.markdown("**Documents in every package and what AI checks**")
@@ -424,7 +419,7 @@ with tab_architecture:
     st.header("How This Prototype Works")
     st.markdown(
         """
-    In this POC, the **AI handles every step** of document intake. Each uploaded PDF
+    In this POC, the AI handles every step of document intake. Each uploaded PDF
     is rendered to images, OCR'd via OpenAI Vision, then classified and field-extracted
     by a single LLM call. A final LLM call summarizes the full case and drafts a
     follow-up email. There are no rule-based checks — the AI operates end-to-end.
@@ -471,15 +466,15 @@ with tab_architecture:
     st.markdown("**Limitations that would matter in production:**")
     st.markdown(
         """
-    - **No correctness guarantee.** The LLM may misread OCR'd text, hallucinate field
+    - No correctness guarantee. The LLM may misread OCR'd text, hallucinate field
       values, or miss items it should flag.
-    - **No validation layer.** AI output is displayed as-is — there's no programmatic
+    - No validation layer. AI output is displayed as-is — there's no programmatic
       cross-check against known form structures.
-    - **Cost & latency.** Every page is rendered, OCR'd, and analyzed via API calls.
-      A 20-page packet can take 30–60 seconds and cost several dollars.
-    - **Non-deterministic.** The same document can produce slightly different extractions
+    - Cost & latency. Every page is rendered, OCR'd, and analyzed via API calls.
+      A 20-page packet can take 30–60 seconds and cost several dollars, which is not efficient.
+    - Non-deterministic. The same document can produce slightly different extractions
       on each run, making audits difficult.
-    - **No integration.** Student data isn't cross-referenced with SIS, FAFSA databases,
+    - No integration. Student data isn't cross-referenced with SIS, FAFSA databases,
       or institutional records.
     """
     )
@@ -489,7 +484,7 @@ with tab_architecture:
     st.header("🏗️ Recommended Production Architecture")
     st.markdown(
         """
-    In a production system, the work is **split between deterministic rules and AI** —
+    In a production system, the work is split between deterministic rules and AI —
     each handling what it does best. Rules enforce known form structures and
     business logic; AI handles ambiguity, unstructured content, and natural-language
     communication.
@@ -561,7 +556,7 @@ with tab_architecture:
     st.subheader("Layer 1 — Ingestion & Pre-Processing")
     st.markdown(
         """
-    **Pure code, no AI.** Standard document ingestion that normalizes input before
+    Pure code, no AI. Standard document ingestion that normalizes input before
     any analysis begins.
     """
     )
@@ -578,7 +573,7 @@ with tab_architecture:
     st.subheader("Layer 2 — Rule-Based Classification & Extraction")
     st.markdown(
         """
-    **Deterministic logic for known form types.** Financial aid offices work with a finite
+    Deterministic logic for known form types. Financial aid offices work with a finite
     set of recurring forms — these can be handled with high accuracy using templates and rules.
     """
     )
@@ -604,19 +599,18 @@ def classify_by_template(text: str) -> str | None:
         """
     - Known forms (FAFSA, 1040, W-2, state applications) are classified instantly
       by matching header text or form identifiers.
-    - Key fields are extracted with targeted regex or positional rules — e.g. AGI
-      always appears on line 11 of a 1040.
+    - Key fields are extracted with targeted regex or positional rules
     - Required-field checklists per form type flag missing data immediately,
       without needing an LLM.
-    - Only documents that don't match any template are forwarded to the AI layer.
+    - Documents not matching any template are forwarded to the AI layer.
     """
     )
 
     st.subheader("Layer 3 — AI Analysis")
     st.markdown(
         """
-    The LLM only handles what rules cannot: **ambiguous documents, unstructured text,
-    and soft judgments**.
+    The LLM handles what rules cannot: ambiguous documents, unstructured text,
+    and soft judgments.
     """
     )
     st.markdown(
@@ -642,7 +636,7 @@ def classify_by_template(text: str) -> str | None:
     st.subheader("Layer 4 — Validation & Cross-Reference")
     st.markdown(
         """
-    **Programmatic verification before anything reaches the advisor.** This layer
+    Programmatic verification before anything reaches the advisor. This layer
     catches AI mistakes and enriches findings with institutional data.
     """
     )
@@ -711,18 +705,6 @@ def classify_by_template(text: str) -> str | None:
         | Time to build | Months |
         """
         )
-
-    st.divider()
-
-    st.header("Key Takeaway")
-    st.info(
-        "**Rules handle known forms and compliance. AI handles ambiguity and communication.**\n\n"
-        "Most financial aid documents follow standardized formats — FAFSA, 1040, W-2 — that "
-        "can be processed with templates and rules at near-zero cost. The AI adds value where "
-        "forms are non-standard, fields are ambiguous, or the advisor needs a synthesized briefing. "
-        "Each layer does what it's best at.",
-        icon="💡",
-    )
 
     st.divider()
     st.caption(

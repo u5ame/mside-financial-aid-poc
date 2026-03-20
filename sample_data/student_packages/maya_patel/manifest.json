@@ -31,7 +31,7 @@
   "expected_catches": [
     {
       "title": "Verification worksheet field gaps",
-      "description": "Household size is blank and Parent 2 wage value is missing on the verification worksheet.",
+      "description": "Household size is blank, Parent 2 wage value missing",
       "keywords": [
         "household size",
         "parent 2",
