@@ -41,7 +41,7 @@
     },
     {
       "title": "SAP support documentation gap",
-      "description": "SAP appeal lists third-party documentation as pending and advisor plan status as draft only.",
+      "description": "SAP appeal lists third-party documentation as pending.",
       "keywords": [
         "sap",
         "third-party",

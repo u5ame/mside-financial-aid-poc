@@ -216,10 +216,11 @@ sample_option_map = get_sample_package_options()
 sample_options = ["None"] + list(sample_option_map.keys())
 
 with tab_tool:
-    with st.expander("POC Context", expanded=True):
+    st.subheader("POC Context")
+    with st.container(border=True):
         st.markdown(
             "We have created three student document packages to demonstrate the AI-assisted intake process."
-            "AI classifies each document, extracts key fields, and flags likely missing or unclear items."
+            " AI classifies each document, extracts key fields, and flags likely missing or unclear items."
         )
         st.markdown("**Documents in every package and what AI checks**")
 
@@ -576,24 +577,6 @@ with tab_architecture:
     Deterministic logic for known form types. Financial aid offices work with a finite
     set of recurring forms — these can be handled with high accuracy using templates and rules.
     """
-    )
-    st.code(
-        '''KNOWN_FORMS = {
-    "1040":   {"markers": ["Form 1040", "Department of the Treasury"],
-               "fields": ["AGI", "filing_status", "tax_year"]},
-    "FAFSA":  {"markers": ["FAFSA", "Student Aid Index"],
-               "fields": ["SAI", "school_code", "dependency_status"]},
-    "W-2":    {"markers": ["Wage and Tax Statement"],
-               "fields": ["employer", "wages", "federal_tax_withheld"]},
-}
-
-def classify_by_template(text: str) -> str | None:
-    """Return form type if known markers are found, else None."""
-    for form_type, spec in KNOWN_FORMS.items():
-        if all(marker.lower() in text.lower() for marker in spec["markers"]):
-            return form_type
-    return None  # hand off to AI for unknown documents''',
-        language="python",
     )
     st.markdown(
         """
