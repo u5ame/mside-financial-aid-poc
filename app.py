@@ -143,7 +143,7 @@ st.markdown(
 st.title("🎓 Morningside Financial Aid Document Processing Assistant (Prototype)")
 st.caption("AI-first intake triage for Morningside University financial aid workflows")
 
-tab_tool, tab_architecture = st.tabs(["📄 Document Processing Tool", "🏗️ Architecture — POC vs Production"])
+tab_tool, tab_architecture, tab_ai_integration = st.tabs(["📄 Document Processing Tool", "🏗️ Architecture — POC vs Production", "🧠 AI integration @ Mside"])
 
 client = build_openai_client()
 if client is None:
@@ -693,5 +693,170 @@ with tab_architecture:
     st.caption(
         "This architecture comparison is provided as part of the proof-of-concept to "
         "illustrate the path from prototype to production-ready system."
+    )
+
+# =====================================================================
+with tab_ai_integration:
+    st.divider()
+
+    st.header("AI Integration @ Morningside")
+    st.markdown(
+        """
+    The two implemented POCs (Freshmen Class Scheduling Assistant and Financial Aid Automation)
+    show a practical direction: deploy AI where it improves student outcomes, advisor efficiency,
+    and institutional capability.
+
+    The long-term goal is to make AI fluency part of the Morningside experience across majors while keeping faculty and staff in control.
+    """
+    )
+
+    st.markdown(
+        f"""
+    <div style="background:{MAROON_LIGHT};border-radius:10px;padding:1.25rem;
+                border:1px solid #ffffff20;margin:0.5rem 0 1.5rem 0;">
+    <div style="font-size:0.95rem;line-height:1.8;">
+    <strong>Important priorities translated into strategy:</strong><br>
+    <span style="color:#d4c5c6;">
+    1) Students should learn to use AI tools effectively and responsibly.<br>
+    2) AI use should be relevant to each student's field (not only CSCI).<br>
+    3) Graduates should leave Morningside with stronger entrepreneurial readiness.
+    </span>
+    </div></div>
+    """,
+        unsafe_allow_html=True,
+    )
+
+
+    st.divider()
+
+    st.header("Course-Embedded AI Integration Strategy")
+    st.markdown(
+        """
+    The proposed idea is to integrate AI into the current courses.
+    Each selected course gets one applied AI project tied to existing learning outcomes.
+    """
+    )
+
+    st.markdown(
+        """
+    **How this works in practice**
+    - Keep existing course objectives and assessments.
+    - Add one AI-supported project or module per course section.
+    - Require students to explain how AI was used, why choices were made, and what value was added, encouraging entrepreneurial thinking.
+    - Evaluate students on the value they create: sound decisions, fact-checking, and useful final work. The reason is simple: many people can type prompts, but fewer can turn AI output into accurate, responsible, real-world results.
+    """
+    )
+
+    st.divider()
+
+    st.header("Why This Is Urgent")
+    st.markdown(
+        """
+    Recent institutional research points to a clear direction: labor markets are shifting toward AI-linked skills,
+    and workers who do not adapt face higher disruption risk.
+
+    - **IMF Staff Discussion Note (2026):** in advanced economies, about one in ten vacancies now requires at least one new skill
+      (often IT/AI related), and diffusion of AI skills is associated with labor-market polarization and pressure in
+      highly exposed occupations with low complementarity.  
+      [Bridging Skill Gaps for the Future: New Jobs Creation in the AI Age (IMF SDN 2026/001)](https://www.imf.org/en/publications/staff-discussion-notes/issues/2026/01/09/bridging-skill-gaps-for-the-future-new-jobs-creation-in-the-ai-age-572136)
+    - **ILO Working Paper (2025):** clerical occupations remain most exposed to GenAI, and exposure is expanding in digitized
+      professional/technical roles, indicating broad task transformation rather than impact in only one sector.  
+      [Generative AI and Jobs: A Refined Global Index of Occupational Exposure (ILO Working Paper 140)](https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure)
+    - **Cedefop / EU Publications (2025):** more than a quarter of the adult workforce is already experimenting with AI at work,
+      and roughly 6 in 10 employees are susceptible to AI-related task transformation, underscoring the need for systematic
+      upskilling and AI literacy.  
+      [Skills empower workers in the AI revolution (Cedefop, 2025)](https://op.europa.eu/en/publication-detail/-/publication/1e0d7455-e8fe-11ef-b5e9-01aa75ed71a1/language-en)
+    """
+    )
+
+    st.divider()
+
+    st.header("What This Could Look Like at Morningside")
+    st.markdown(
+        """
+    The Applied AI minor is already a strong base. The proposed next step is embedding applied AI projects into existing Morningside courses:
+     - Students identify a real workflow pain point in their field.
+     - Students prototype an AI-enabled solution in teams.
+     - Students test with users (classmates, faculty, local partners).
+     - Students present impact, limits, and next-step business feasibility.
+    """
+    )
+
+    st.markdown(
+        f"""
+    <div style="width:100%;overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;table-layout:fixed;">
+      <thead>
+        <tr>
+          <th style="text-align:left;padding:10px;border:1px solid #ffffff30;width:18%;">Area</th>
+          <th style="text-align:left;padding:10px;border:1px solid #ffffff30;width:36%;">High-impact curricular touchpoints</th>
+          <th style="text-align:left;padding:10px;border:1px solid #ffffff30;width:46%;">AI project example and student value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="vertical-align:top;padding:10px;border:1px solid #ffffff30;">Business &amp; Entrepreneurship</td>
+          <td style="vertical-align:top;padding:10px;border:1px solid #ffffff30;">Entry: opportunity framing and customer problem discovery<br>Mid: market validation and unit-economics testing<br>Upper: venture launch plan and go-to-market decisions</td>
+          <td style="vertical-align:top;padding:10px;border:1px solid #ffffff30;">Students review customer interviews with AI, find the top 3 pain points, and propose one low-cost pilot offer.<br><br><strong>Value:</strong> Faster market validation and better startup decisions.</td>
+        </tr>
+        <tr>
+          <td style="vertical-align:top;padding:10px;border:1px solid #ffffff30;">Communication</td>
+          <td style="vertical-align:top;padding:10px;border:1px solid #ffffff30;">Entry: audience and message basics<br>Mid: channel strategy and campaign testing<br>Upper: measurable campaign optimization</td>
+          <td style="vertical-align:top;padding:10px;border:1px solid #ffffff30;">Students draft two campaign messages for a real campus event, use AI to compare likely response, then submit one improved final version.<br><br><strong>Value:</strong> Clear, evidence-based communication choices.</td>
+        </tr>
+        <tr>
+          <td style="vertical-align:top;padding:10px;border:1px solid #ffffff30;">Education</td>
+          <td style="vertical-align:top;padding:10px;border:1px solid #ffffff30;">Entry: lesson objective and classroom structure<br>Mid: differentiated instruction design<br>Upper: assessment and intervention planning</td>
+          <td style="vertical-align:top;padding:10px;border:1px solid #ffffff30;">Students build one lesson, create support and advanced versions, and explain why each adaptation helps learning.<br><br><strong>Value:</strong> Stronger inclusive classroom planning.</td>
+        </tr>
+        <tr>
+          <td style="vertical-align:top;padding:10px;border:1px solid #ffffff30;">Health-related programs</td>
+          <td style="vertical-align:top;padding:10px;border:1px solid #ffffff30;">Entry: patient communication fundamentals<br>Mid: clinical documentation clarity and consistency<br>Upper: care-quality and safety communication review</td>
+          <td style="vertical-align:top;padding:10px;border:1px solid #ffffff30;">Students create a patient handout, run AI checks for jargon and safety clarity, then submit a corrected final copy.<br><br><strong>Value:</strong> Better patient understanding and lower communication risk.</td>
+        </tr>
+        <tr>
+          <td style="vertical-align:top;padding:10px;border:1px solid #ffffff30;">Arts and Design</td>
+          <td style="vertical-align:top;padding:10px;border:1px solid #ffffff30;">Entry: concept generation and visual research<br>Mid: style development and iteration<br>Upper: portfolio-quality production and critique</td>
+          <td style="vertical-align:top;padding:10px;border:1px solid #ffffff30;">Students create three concept directions, choose one final design, and explain originality and style decisions.<br><br><strong>Value:</strong> Faster ideation while keeping creative ownership.</td>
+        </tr>
+        <tr>
+          <td style="vertical-align:top;padding:10px;border:1px solid #ffffff30;">CSCI</td>
+          <td style="vertical-align:top;padding:10px;border:1px solid #ffffff30;">Entry: problem decomposition and basic tooling<br>Mid: prototype implementation and testing<br>Upper: reliability, security, and deployment readiness</td>
+          <td style="vertical-align:top;padding:10px;border:1px solid #ffffff30;">Students ship a small tool for a real campus workflow, include test results, and document key failure cases.<br><br><strong>Value:</strong> Job-ready build, test, and reliability skills.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    """,
+        unsafe_allow_html=True,
+    )
+
+
+    st.divider()
+
+    st.header("Implementation Plan")
+    st.markdown(
+        """
+    | Phase | Timeline | Focus | Deliverable |
+    |---|---|---|---|
+    | 1 | Fall 2026 | 4-6 courses across different departments | One AI project brief + rubric per course |
+    | 2 | Spring 2027 | Scale to 12-15 courses | Create a central library of ready-to-use AI assignments, example student work, and simple teaching guides faculty can reuse. |
+    | 3 | 12-24 months from now | Institutionalize | Add an AI project section to student portfolios/transcripts so employers can clearly see applied AI skills at graduation. |
+    """
+    )
+
+    st.markdown(
+        """
+    **Initial Approach**
+    1. Select first 4-6 courses.
+    2. Co-design one AI project brief per course with faculty leads.
+    3. Run faculty calibration sessions on grading and responsible-use standards.
+    4. Pilot, measure, and publish outcomes at a campus showcase.
+    """
+    )
+
+    st.info(
+        "Direction: move from isolated AI demos to course-embedded, field-specific, entrepreneurship-oriented student outcomes.",
+        icon="💡",
     )
 
