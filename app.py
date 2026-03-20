@@ -140,7 +140,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.title("🎓 Morningside Financial Aid Document Processing Assistant (Prototype)")
+st.title("🎓 Morningside Financial Aid Document Processing Assistant (POC)")
 st.caption("AI-first intake triage for Morningside University financial aid workflows")
 
 tab_tool, tab_architecture, tab_ai_integration = st.tabs(["📄 Document Processing Tool", "🏗️ Architecture — POC vs Production", "🧠 AI integration @ Mside"])
@@ -464,9 +464,10 @@ with tab_architecture:
     """
     )
 
-    st.markdown("**Limitations that would matter in production:**")
+    st.markdown("**Limitations of this POC:**")
     st.markdown(
         """
+    - These constraints apply to this prototype implementation shown in the demo.
     - No correctness guarantee. The LLM may misread OCR'd text, hallucinate field
       values, or miss items it should flag.
     - No validation layer. AI output is displayed as-is — there's no programmatic
